@@ -10,8 +10,9 @@ class CActivity : LogActivity() {
         setContentView(R.layout.activity_c)
         val dButton: Button = findViewById(R.id.button_to_D)
         dButton.setOnClickListener {
-            finishAffinity()
-            startActivity(Intent(this, DActivity::class.java))
+            startActivity(Intent(this, DActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            })
         }
 
         val aButton: Button = findViewById(R.id.button_to_A)

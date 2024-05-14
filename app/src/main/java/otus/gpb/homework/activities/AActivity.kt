@@ -13,7 +13,9 @@ class AActivity : LogActivity() {
         val bButton: Button = findViewById(R.id.button_to_B)
         bButton.text = getString(R.string.open_activity_b)
         bButton.setOnClickListener {
-            startActivity(Intent(this, BActivity::class.java))
+            startActivity(Intent(this, BActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+            })
         }
 
     }
